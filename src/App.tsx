@@ -1,26 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { TopBar } from "./components/TopBar";
+import { Footer } from "./components/Footer";
+import { Box, Stack, ThemeProvider, createTheme } from "@mui/material";
+import { BodyContent } from "./components/BodyContent";
+import { NavBar } from "./components/NavBar";
+import { useState } from "react";
+import ImageListComponent from "./components/ImageListComponent";
+import AboutUs from "./components/AboutUs";
 
-function App() {
+const App = () => {
+  const [mode, setMode] = useState<any>("dark");
+
+  const darkTheme = createTheme({
+    palette: {
+      mode: "dark", // Setting mode to "dark" for the dark theme
+      primary: {
+        main: "#121212", // Replace with your desired dark primary color
+      },
+      secondary: {
+        main: "#ff8a65", // Replace with your desired dark secondary color
+      },
+    },
+  });
+
+  const lightTheme = createTheme({
+    palette: {
+      mode: "light", // Setting mode to "light" for the light theme
+      primary: {
+        main: "#B4CD29", // Replace with your desired light primary color
+      },
+      secondary: {
+        main: "#C0E10B", // Replace with your desired light secondary color
+      },
+    },
+  });
+
+  const currentTheme = mode === "dark" ? darkTheme : lightTheme;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={currentTheme}>
+      <Box bgcolor={"background.default"} color={"text.primary"}>
+        <NavBar setMode={setMode} mode={mode} />
+        <Stack direction="column" spacing={2} justifyContent="space-between">
+          <TopBar />
+          <ImageListComponent />
+          <AboutUs />
+          {/* <BodyContent /> */}
+          <Footer />
+        </Stack>
+      </Box>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
