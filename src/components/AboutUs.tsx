@@ -49,7 +49,7 @@ const AboutUs = () => {
           </Typography>
         </Box>
       </Box>
-      <Box
+      {/* <Box
         sx={{
           width: "500",
           height: 600,
@@ -87,7 +87,7 @@ const AboutUs = () => {
             </ImageListItem>
           ))}
         </ImageList>
-      </Box>
+      </Box> */}
     </>
   );
 };
