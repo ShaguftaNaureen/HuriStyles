@@ -7,7 +7,6 @@ import { useState } from "react";
 import ImageListComponent from "./components/ImageListComponent";
 import AboutUs from "./components/AboutUs";
 import NewCollections from "./components/NewCollections";
-import Cards from "./components/Cards";
 
 const App = () => {
   const [mode, setMode] = useState<any>("dark");
@@ -47,7 +46,7 @@ const App = () => {
           <ImageListComponent />
 
           <NewCollections />
-          <Cards />
+
           {/* <BodyContent /> */}
           <AboutUs />
           <Footer />

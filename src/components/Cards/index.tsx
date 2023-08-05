@@ -4,27 +4,47 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
-const Cards = () => {
+type Prop = {
+  Name: string;
+  Rupees: number;
+  image: any;
+};
+const Cards = ({ Name, Rupees, image }: Prop) => {
   return (
-    <Card sx={{ display: "flex" }}>
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <CardContent sx={{ display: "flex", flexDirection: "row" }}>
+    <Card sx={{ display: "flex", backgroundColor: "black" }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          width: 300,
+          height: 500,
+        }}
+      >
+        <CardContent
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: 0,
+          }}
+        >
           <Typography component="div" variant="h5">
-            Ruby
+            {Name}
           </Typography>
           <Typography
             variant="subtitle1"
             color="text.secondary"
             component="div"
           >
-            Rs.250
+            Rs.{Rupees}
           </Typography>
         </CardContent>
 
         <CardMedia
           component="img"
-          sx={{ width: 151 }}
-          image="https://mui.com/static/images/cards/live-from-space.jpg"
+          sx={{ width: "100%", height: "100%" }}
+          image={image}
           alt="Live from space album cover"
         />
       </Box>

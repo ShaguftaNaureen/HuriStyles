@@ -1,5 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
+import Cards from "./Cards";
+import PinkH from "../assets/PinkH.jpeg";
 
 const NewCollections = () => {
   return (
@@ -16,17 +18,9 @@ const NewCollections = () => {
         <Typography variant="h3" style={{ fontFamily: "Cinzel, serif" }}>
           NEW COLLECTIONS
         </Typography>
-        {/* <Box style={{ margin: "1% 20% 0 20%" }}>
-        <Typography
-          variant="h6"
-          style={{ fontFamily: "Cinzel, serif", textAlign: "center" }}
-        >
-          At our company, we are passionate about providing stylish and
-          high-quality hijab products that empower women to embrace their
-          individuality and express their unique sense of fashion while
-          maintaining their modesty and grace.
-        </Typography>
-      </Box> */}
+        <Box>
+          <Cards Name={"Ruby"} Rupees={199} image={PinkH} />
+        </Box>
       </Box>
     </>
   );
